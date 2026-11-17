@@ -1,1 +1,0 @@
-# galamm-alemi

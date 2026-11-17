@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b20">
+<title>Ғарыш әлемі — Шексіздікке саяхат</title>
+<style>
+:root{--bg:#070b20;--panel:#101936;--muted:#aab6d4;--cyan:#66e5ff;--purple:#a58bff;--white:#f5f7ff}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(2px 2px at 20% 30%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 70% 20%,#b7d8ff 50%,transparent 60%),radial-gradient(2px 2px at 80% 70%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 35% 80%,#fff 50%,transparent 60%),radial-gradient(1px 1px at 55% 50%,#c8baff 50%,transparent 60%),linear-gradient(135deg,#080d27,#11133a 55%,#071126);background-size:370px 300px,440px 370px,510px 430px,330px 390px,600px 500px,cover}
+a{color:inherit;text-decoration:none}
+header{position:fixed;top:0;left:0;right:0;z-index:20;background:#080d25cc;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff18}
+.nav{max-width:1160px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:900;letter-spacing:.08em;color:white}.logo span{color:var(--cyan)}
+nav{display:flex;gap:22px;align-items:center}nav a{font-size:13px;color:#c6cde2;transition:.2s}nav a:hover{color:var(--cyan)}
+.menu{display:none;background:none;border:1px solid #ffffff35;color:white;border-radius:10px;padding:8px 12px}
+.hero{min-height:100vh;display:grid;place-items:center;padding:130px 22px 70px;position:relative;text-align:center;overflow:hidden}
+.hero:before{content:"";position:absolute;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b8f2ff,#4267c9 28%,#24236f 58%,#090d25 72%);box-shadow:0 0 100px #526dff88;opacity:.72;right:calc(50% - 220px);top:27%;z-index:-1}
+.hero:after{content:"";position:absolute;width:560px;height:160px;border:2px solid #b5a8ff88;border-radius:50%;transform:rotate(-23deg);top:48%;right:calc(50% - 280px);z-index:-1}
+.hero-inner{max-width:850px}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:800}
+h1{font-size:clamp(44px,8vw,88px);line-height:1.02;letter-spacing:-.055em;margin:18px 0;background:linear-gradient(100deg,#fff 15%,#9cecff 55%,#b5a1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:650px;margin:0 auto 30px;color:#d1d9f0;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(110deg,#4bd9f4,#8e82ff);color:#071126;padding:13px 22px;border-radius:999px;font-weight:850;box-shadow:0 8px 35px #6b9aff44;transition:.2s}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px #6b9aff66}
+section{max-width:1160px;margin:auto;padding:95px 22px;scroll-margin-top:70px}
+.section-head{max-width:700px;margin-bottom:35px}.kicker{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+h2{font-size:clamp(30px,5vw,48px);line-height:1.12;margin:10px 0 14px;letter-spacing:-.035em}
+.section-head p,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(145deg,#182348dd,#0c1530ee);border:1px solid #a9c4ff24;border-radius:22px;padding:24px;box-shadow:0 15px 45px #0002;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:#73dfff77}
+.icon{font-size:34px;margin-bottom:10px}.card h3{margin:4px 0 8px;font-size:20px}.card p{margin:0;color:var(--muted);font-size:14px}
+.planet{display:flex;align-items:center;gap:16px}.planet-ball{width:72px;height:72px;flex:none;border-radius:50%;box-shadow:inset -14px -10px 22px #0008,0 0 30px #ffffff18}
+.mercury{background:linear-gradient(135deg,#b9b3aa,#55515d)}.venus{background:linear-gradient(135deg,#ffe2a1,#a75d35)}.earth{background:radial-gradient(circle at 30% 25%,#8cf2ff,#2578c8 40%,#16426c 70%)}.mars{background:linear-gradient(135deg,#ffb27c,#a52e20)}.jupiter{background:repeating-linear-gradient(0deg,#d9b58a 0 8px,#98644f 9px 15px,#ead5b0 16px 23px)}.saturn{background:linear-gradient(135deg,#f6dfa3,#a88956)}.uranus{background:linear-gradient(135deg,#b6fbf4,#4d9eb6)}.neptune{background:linear-gradient(135deg,#8bbdff,#17358c)}
+.fact{font-size:38px;font-weight:900;color:var(--cyan);line-height:1.1}.fact-card{min-height:150px}
+.timeline{border-left:2px solid #6c8dff66;margin-left:10px;padding-left:25px;display:grid;gap:20px}.event{position:relative}.event:before{content:"";position:absolute;left:-33px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}.event strong{color:#fff}.event p{margin:4px 0;color:var(--muted)}
+.banner{border-radius:28px;padding:38px;background:radial-gradient(circle at 90% 10%,#4e63b855,transparent 40%),linear-gradient(120deg,#172957,#17183e);border:1px solid #b3c8ff2c}
+footer{border-top:1px solid #ffffff1c;padding:30px 22px;text-align:center;color:#98a6c7;font-size:13px}
+.small{font-size:12px;color:#91a1c7}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}nav{display:none;position:absolute;top:60px;left:12px;right:12px;background:#101936;border:1px solid #ffffff22;border-radius:16px;padding:18px;flex-direction:column;align-items:flex-start}nav.open{display:flex}.menu{display:block}.hero:before{width:320px;height:320px;right:calc(50% - 160px)}.hero:after{width:410px;right:calc(50% - 205px)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero p{font-size:16px}.planet-ball{width:60px;height:60px}section{padding:75px 18px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="logo" href="#home">ҒАРЫШ<span>·</span>ӘЛЕМІ</a>
+<button class="menu" id="menuBtn" aria-label="Мәзірді ашу">☰</button>
+<nav id="nav"><a href="#about">Ғарыш туралы</a><a href="#planets">Ғаламшарлар</a><a href="#explore">Зерттеу</a><a href="#facts">Қызықты деректер</a></nav>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="hero-inner">
+<div class="eyebrow">Шексіздікке саяхат басталады</div>
+<h1>ҒАРЫШ<br>ӘЛЕМІ</h1>
+<p>Жұлдыздар, ғаламшарлар мен галактикаларға толы құпия әлемге қош келдіңіз. Ғарыштың таңғажайып сырларын бірге ашайық!</p>
+<a class="btn" href="#about">Саяхатты бастау <span>↗</span></a>
+</div></section>
+<section id="about"><div class="section-head"><div class="kicker">01 / Ғалам туралы</div><h2>Ғарыш — шексіз мүмкіндіктер әлемі</h2><p>Ғарыш — Жер атмосферасынан тыс жатқан кеңістік. Онда миллиардтаған жұлдыз, сансыз ғаламшар, тұмандықтар мен галактикалар бар. Біз өмір сүретін Жер де осы алып әлемнің кішкентай бөлігі.</p></div>
+<div class="grid">
+<article class="card"><div class="icon">🌌</div><h3>Галактикалар</h3><p>Галактика — жұлдыздар, газ, шаң және қара материядан тұратын алып жүйе. Біздің Күн жүйесі Құс жолы галактикасында орналасқан.</p></article>
+<article class="card"><div class="icon">⭐</div><h3>Жұлдыздар</h3><p>Жұлдыздар өз жарығы мен жылуын шығарады. Күн — Жерге ең жақын жұлдыз және тіршіліктің негізгі энергия көзі.</p></article>
+<article class="card"><div class="icon">🪐</div><h3>Ғаламшарлар</h3><p>Ғаламшарлар жұлдыздарды айналып қозғалады. Күн жүйесінде сегіз ғаламшар бар.</p></article>
+</div></section>
+<section id="planets"><div class="section-head"><div class="kicker">02 / Күн жүйесі</div><h2>Біздің ғаламшарлық мекеніміз</h2><p>Күн жүйесінің ортасында Күн орналасқан. Оның айналасында сегіз ғаламшар өз орбитасымен қозғалады.</p></div>
+<div class="grid">
+<div class="card planet"><div class="planet-ball mercury"></div><div><h3>Меркурий</h3><p>Күнге ең жақын ғаламшар.</p></div></div>
+<div class="card planet"><div class="planet-ball venus"></div><div><h3>Шолпан</h3><p>Ең ыстық ғаламшар.</p></div></div>
+<div class="card planet"><div class="planet-ball earth"></div><div><h3>Жер</h3><p>Сұйық суы бар тіршілік мекені.</p></div></div>
+<div class="card planet"><div class="planet-ball mars"></div><div><h3>Марс</h3><p>Қызыл ғаламшар деп аталады.</p></div></div>
+<div class="card planet"><div class="planet-ball jupiter"></div><div><h3>Юпитер</h3><p>Күн жүйесіндегі ең үлкен ғаламшар.</p></div></div>
+<div class="card planet"><div class="planet-ball saturn"></div><div><h3>Сатурн</h3><p>Айқын сақиналарымен танымал.</p></div></div>
+<div class="card planet"><div class="planet-ball uranus"></div><div><h3>Уран</h3><p>Бүйірімен айналатын мұзды алып.</p></div></div>
+<div class="card planet"><div class="planet-ball neptune"></div><div><h3>Нептун</h3><p>Күннен ең алыс ғаламшар.</p></div></div>
+</div></section>
+<section id="explore"><div class="section-head"><div class="kicker">03 / Ғарышты зерттеу</div><h2>Адамзаттың ғарышқа жолы</h2><p>Ғарышты зерттеу ғылым мен технологияның дамуына үлкен үлес қосты.</p></div>
+<div class="banner"><div class="timeline">
+<div class="event"><strong>1957 жыл — алғашқы жасанды серік</strong><p>«Спутник-1» Жер орбитасына шығарылып, ғарыш дәуірі басталды.</p></div>
+<div class="event"><strong>1961 жыл — алғашқы адам ғарышта</strong><p>Юрий Гагарин ғарышқа ұшқан алғашқы адам болды.</p></div>
+<div class="event"><strong>1969 жыл — Айға қону</strong><p>«Аполлон-11» миссиясы кезінде адамдар алғаш рет Ай бетіне қадам басты.</p></div>
+<div class="event"><strong>1991 жыл — Тоқтар Әубәкіров</strong><p>Қазақстанның тұңғыш ғарышкері ғарышқа ұшты.</p></div>
+<div class="event"><strong>1994 жыл — Талғат Мұсабаев</strong><p>Қазақстандық ғарышкер алғашқы ғарыш сапарына аттанды.</p></div>
+</div></div></section>
+<section id="facts"><div class="section-head"><div class="kicker">04 / Біле жүріңіз</div><h2>Қызықты деректер</h2><p>Ғарыш туралы бірнеше таңғаларлық мәлімет.</p></div>
+<div class="grid">
+<div class="card fact-card"><div class="fact">8</div><h3>Ғаламшар</h3><p>Күн жүйесінде ресми түрде сегіз ғаламшар бар.</p></div>
+<div class="card fact-card"><div class="fact">384 400 км</div><h3>Айға дейінгі орташа қашықтық</h3><p>Жер мен Айдың орташа арақашықтығы осындай.</p></div>
+<div class="card fact-card"><div class="fact">~300 000</div><h3>км/с</h3><p>Жарық вакуумда шамамен осындай жылдамдықпен таралады.</p></div>
+</div></section>
+<section><div class="banner"><div class="kicker">Саяхат аяқталды ма?</div><h2>Ғарыштың құпиясы әлі көп</h2><p class="muted">Әрбір жаңа зерттеу бізге Әлем туралы көбірек білуге мүмкіндік береді. Қызығушылығыңды жоғалтпа — ғылымға жол сұрақ қоюдан басталады.</p><a class="btn" href="#home">Жоғарыға оралу ↑</a></div></section>
+</main>
+<footer>© 2026 ҒАРЫШ ӘЛЕМІ · Танымдық оқу жобасы<br><span class="small">Ғылымға қызығу — болашаққа жасалған қадам.</span></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+</script>
+</body></html>
